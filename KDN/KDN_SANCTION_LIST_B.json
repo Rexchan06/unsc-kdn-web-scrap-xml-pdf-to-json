@@ -1,0 +1,218 @@
+[
+    {
+        "ID": 1,
+        "REFERENCE_NUMBER": "KDN.K.1-2013",
+        "NAME": "Jemaah Islamiyah",
+        "ALIAS": "a) Jema’ah Islamiyah b) Jemaah Islamiya c) Jemaah Islamiah d) Jamaah Islamiyah e) Jama’ah Islamiyah",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "7 April 2014"
+    },
+    {
+        "ID": 2,
+        "REFERENCE_NUMBER": "KDN.K.2-2013",
+        "NAME": "Tanzim Al-Qaeda Malaysia (TAQM)",
+        "ALIAS": "a) Tandzim Al-Qaeda Malaysia b) Tandhim AlQaeda",
+        "OTHER_NAME": "TAQM",
+        "ADDRESS": "DL 11, Lorong, Mutiara 2, Taman Bukit Ampang, Lembah Jaya, 68000, Ampang, Selangor, Malaysia",
+        "LISTED_DATE": "7 April 2014"
+    },
+    {
+        "ID": 3,
+        "REFERENCE_NUMBER": "KDN.K.3-2013",
+        "NAME": "Jabhat al-Nusra",
+        "ALIAS": "a) Jebhat al-Nusra li-Ahl al-Sham b) Jabhet al- Nusrah c) Abhat al-Nusra d) Al Nusra e) Al-Nusrah Front",
+        "OTHER_NAME": "Al-Nusra Front For The People of The Levant, The Victory Front",
+        "ADDRESS": "Syria",
+        "LISTED_DATE": "7 April 2014"
+    },
+    {
+        "ID": 4,
+        "REFERENCE_NUMBER": "KDN.K.01-2014",
+        "NAME": "Kumpulan Abu Sayyaf",
+        "ALIAS": "Al Harakat Al Islamiyya",
+        "OTHER_NAME": "-",
+        "ADDRESS": "Filipina",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 5,
+        "REFERENCE_NUMBER": "KDN.K.02-2014",
+        "NAME": "Liberation Tigers of Tamil Eelam (LTTE)",
+        "ALIAS": "Tamil Tigers",
+        "OTHER_NAME": "-",
+        "ADDRESS": "Sri Lanka",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 6,
+        "REFERENCE_NUMBER": "KDN.K.05-2014",
+        "NAME": "Islamic State (IS)",
+        "ALIAS": "a) AQI b) al-Tawhid c) the Monotheism and Jihad Group d) Qaida of the Jihad in the Land of the Two Rivers e) Al-Qaida of Jihad in the Land of the Two Rivers f) The Organization of Jihad’s Base in the Country of the Two Rivers g) The Organization Base of Jihad/Country of the Two Rivers h) The Organization Base of Jihad/ Mesopotamia i) Tanzim Qa’idat Al-Jihad fi Bilad al- Rafidayn j) Tanzeem Qa’idat al Jihad/Bilad al Raafidaini k) Jama'at Al-Tawhid Wa'al- Jihad l) JTJ m) Islamic State of Iraq n) ISI o) al-Zarqawi network p) Islamic State in Iraq and the Levant q) Al-Qaida In Iraq",
+        "OTHER_NAME": "-",
+        "ADDRESS": "a) Iraq b) Syria",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 7,
+        "REFERENCE_NUMBER": "KDN.K.06-2014",
+        "NAME": "East Turkistan Islamic Movement (ETIM)",
+        "ALIAS": "a) The Eastern Turkistan Islamic Party b) The Eastern Turkistan Islamic Party of Allah c) Islamic Party of Turkestan d) Djamaat Turkistan",
+        "OTHER_NAME": "-",
+        "ADDRESS": "China",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 8,
+        "REFERENCE_NUMBER": "KDN.K.07-2014",
+        "NAME": "Babbar Khalsa International (BKI)",
+        "ALIAS": "Babbar Khalsa",
+        "OTHER_NAME": "-",
+        "ADDRESS": "Punjab, India",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 9,
+        "REFERENCE_NUMBER": "KDN.K.08-2014",
+        "NAME": "Al-Shabab",
+        "ALIAS": "a) Ḥarakat ash-Shabāb al- Mujāhidīn b) Xarakada Mujaahidiinta Alshabaab c) Harakat al-Shabaab al- Mujahideen (HSM)",
+        "OTHER_NAME": "-",
+        "ADDRESS": "Somalia",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 10,
+        "REFERENCE_NUMBER": "KDN.K.09-2014",
+        "NAME": "Al-Qaeda in Arabian Peninsula (AQAP)",
+        "ALIAS": "a) Al-Qaida of Jihad Organization in the Arabian Peninsula b) Tanzim Qa’idat al-Jihad fi Jazirat al-Arab c) Al-Qaida Organization in the Arabian Peninsula (AQAP) d) Al-Qaida in the South Arabian Peninsula e) Ansar al-Shari'a (AAS)",
+        "OTHER_NAME": "Al-Qaida in Yemen (AQY)",
+        "ADDRESS": "Yemen",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 11,
+        "REFERENCE_NUMBER": "KDN.K.10-2014",
+        "NAME": "Al-Qaeda in The Lands of the Islamic Maghreb (AQIM)",
+        "ALIAS": "a) AQIM b) Al Qaïda au Maghreb Islamique (AQMI)",
+        "OTHER_NAME": "a) Le Groupe Salafiste pour La Prédication et le Combat (GSPC) b) Salafist Group for Call and Combat",
+        "ADDRESS": "a) Algeria b) Mali c) Mauritania d) Morocco e) Niger f) Tunisia",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 12,
+        "REFERENCE_NUMBER": "KDN.K.12-2014",
+        "NAME": "Darul Islam Malaysia (DIM)",
+        "ALIAS": "-",
+        "OTHER_NAME": "-",
+        "ADDRESS": "Malaysia",
+        "LISTED_DATE": "12 November 2014"
+    },
+    {
+        "ID": 13,
+        "REFERENCE_NUMBER": "KDN.K.02-2016",
+        "NAME": "Jund Al-Aqsa",
+        "ALIAS": "a) Soldiers of Al-Aqsa b) Sarayat Al-Quds c) Muhajirin Wa-Ansar d) Liwaa Al-Umma e) Liwa Al-Haqq f) Ahrar Ash-Sham g) Al-Nusra Front",
+        "OTHER_NAME": "-",
+        "ADDRESS": "Idlib, Syria",
+        "LISTED_DATE": "5 September 2016"
+    },
+    {
+        "ID": 14,
+        "REFERENCE_NUMBER": "KDN.K.1-2019",
+        "NAME": "Militan Maute",
+        "ALIAS": "Islamic State of Lanao",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "21 May 2019"
+    },
+    {
+        "ID": 15,
+        "REFERENCE_NUMBER": "KDN.K.2-2019",
+        "NAME": "Ansar Khalifa Philippines (AKP)",
+        "ALIAS": "a) Ansar Al-Khalifah in the Philippines b) Ansarul Khilafah Philippines",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "21 May 2019"
+    },
+    {
+        "ID": 16,
+        "REFERENCE_NUMBER": "KDN.K.3-2019",
+        "NAME": "Bangsamoro Islamic Freedom Fighters (BIFF)",
+        "ALIAS": "-",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "21 May 2019"
+    },
+    {
+        "ID": 17,
+        "REFERENCE_NUMBER": "KDN.K.4-2019",
+        "NAME": "Islamic State of Iraq and The Levant – Sinai Province (ISIL- SP)",
+        "ALIAS": "-",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "21 May 2019"
+    },
+    {
+        "ID": 18,
+        "REFERENCE_NUMBER": "KDN.K.5-2019",
+        "NAME": "Hezbollah",
+        "ALIAS": "Hizbullah",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "21 May 2019"
+    },
+    {
+        "ID": 19,
+        "REFERENCE_NUMBER": "KDN.K.6-2019",
+        "NAME": "Houthi",
+        "ALIAS": "Ansar Allah",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "21 May 2019"
+    },
+    {
+        "ID": 20,
+        "REFERENCE_NUMBER": "KDN.K.7-2019",
+        "NAME": "Jamaat-Ul- Mujahideen (JMB)",
+        "ALIAS": "Jma’atul Mujahideen Bangladesh (JIMB)",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "21 May 2019"
+    },
+    {
+        "ID": 21,
+        "REFERENCE_NUMBER": "KDN.K.8-2019",
+        "NAME": "Arakan Rohingya Salvation Army (ARSA)",
+        "ALIAS": "Harakah Al-Yaqin",
+        "OTHER_NAME": "-",
+        "ADDRESS": "-",
+        "LISTED_DATE": "21 May 2019"
+    },
+    {
+        "ID": 22,
+        "REFERENCE_NUMBER": "KDN.K.01-2021",
+        "NAME": "Royal Sulu Force (RSF)",
+        "ALIAS": "Royal Sulu Armed Forces",
+        "OTHER_NAME": "-",
+        "ADDRESS": "Filipina",
+        "LISTED_DATE": "25 April 2022"
+    },
+    {
+        "ID": 23,
+        "REFERENCE_NUMBER": "KDN.K.02-2021",
+        "NAME": "Jamaah Ansharut Daulah (JAD)",
+        "ALIAS": "-",
+        "OTHER_NAME": "JAD",
+        "ADDRESS": "Indonesia",
+        "LISTED_DATE": "25 April 2022"
+    },
+    {
+        "ID": 24,
+        "REFERENCE_NUMBER": "KDN.K.03-2021",
+        "NAME": "Al-Qaeda (AQ)",
+        "ALIAS": "a) Islamic Salvation Foundation b) The Group for the Preservation of the Holy Sites c) The Islamic Army for the Liberation of Holy Places d) The World Islamic Front for Jihad Against Jews and Crusaders e) Usama Bin Laden Network f) Usama Bin Laden Organization g) Al Qa'ida h) Al Qa’ida/Islamic Army",
+        "OTHER_NAME": "-",
+        "ADDRESS": "Global",
+        "LISTED_DATE": "25 April 2022"
+    }
+]
