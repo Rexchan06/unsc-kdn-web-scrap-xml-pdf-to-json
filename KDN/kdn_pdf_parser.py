@@ -5,7 +5,7 @@ import io
 from typing import Union
 
 # Import utility functions from kdn_utils module
-from kdn_utils import parse_date, MONTH_MAP 
+from .kdn_utils import parse_date, MONTH_MAP 
 
 def convert_individuals_to_json(pdf_content_bytes: bytes) -> list:
     """
