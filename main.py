@@ -52,7 +52,7 @@ def run_unsc_sanction_list_process(local_mode: bool = False):
         logging.info(f"Last updated date on UN website: {last_update_date}")
         logging.info(f"Today's date: {today_date}")
 
-        if last_update_date <= today_date:
+        if last_update_date == today_date:
             logging.info("The UN list was updated today. Proceeding to download and convert.")
             xml_link = get_xml_link(UN_SECURITY_COUNCIL_URL)
             if xml_link:
@@ -65,6 +65,7 @@ def run_unsc_sanction_list_process(local_mode: bool = False):
                     else:
                         if upload_json_to_s3(unsc_json_data, S3_BUCKET_NAME, UNSC_S3_OBJECT_KEY):
                             logging.info(f"UNSC JSON data successfully uploaded to s3://{S3_BUCKET_NAME}/{UNSC_S3_OBJECT_KEY}")
+
                         else:
                             logging.error("Failed to upload UNSC JSON data to S3.")
                 else:
