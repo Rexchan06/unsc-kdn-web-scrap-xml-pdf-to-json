@@ -1,0 +1,8 @@
+# Exclude local development specific files and directories from the Docker image
+local_output/
+utils/local_file_utils.py
+.venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore

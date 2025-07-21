@@ -3,14 +3,14 @@ import json
 import io
 import logging
 from typing import Union
-from config.settings import AWS_REGION
+from config.settings import APP_AWS_REGION
 
 # --- S3 Utility Functions ---
 def upload_json_to_s3(
     json_data: dict,
     bucket_name: str,
     object_key: str,
-    region_name: str = AWS_REGION,
+    region_name: str = APP_AWS_REGION,
     content_type: str = 'application/json'
 ) -> bool:
     """
@@ -45,7 +45,7 @@ def upload_json_to_s3(
         logging.error(f"An unexpected error occurred during S3 upload for {object_key}: {e}")
         return False
 
-def read_s3_state_file(bucket_name: str, object_key: str, region_name: str = AWS_REGION) -> Union[str, None]:
+def read_s3_state_file(bucket_name: str, object_key: str, region_name: str = APP_AWS_REGION) -> Union[str, None]:
     """
     Reads the content of a state file (e.g., last known URL) from S3.
     Returns None if the file does not exist or an error occurs.
@@ -63,7 +63,7 @@ def read_s3_state_file(bucket_name: str, object_key: str, region_name: str = AWS
         logging.error(f"Error reading state file from s3://{bucket_name}/{object_key}: {e}")
         return None
 
-def write_s3_state_file(content: str, bucket_name: str, object_key: str, region_name: str = AWS_REGION) -> bool:
+def write_s3_state_file(content: str, bucket_name: str, object_key: str, region_name: str = APP_AWS_REGION) -> bool:
     """
     Writes content to a state file in S3.
     """
