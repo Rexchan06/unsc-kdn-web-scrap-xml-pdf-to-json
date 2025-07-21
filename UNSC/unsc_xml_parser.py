@@ -1,30 +1,7 @@
 import requests
-import json
 import xmltodict
 from typing import Union
-
-def get_safe_string(value: Union[str, None]) -> str:
-    """
-    Safely converts a value to a string and strips whitespace.
-    Returns an empty string if the value is None or not a string.
-    """
-    if isinstance(value, str):
-        return value.strip()
-    return ""
-
-def get_safe_int(value: Union[str, dict, None]) -> Union[int, str]:
-    """
-    Safely converts a value to an integer.
-    Handles cases where xmltodict might return a dict for elements with attributes and text.
-    Returns an empty string if conversion to a valid integer is not possible.
-    """
-    if isinstance(value, dict):
-        text_val = value.get("#text")
-        if isinstance(text_val, str) and text_val.isdigit():
-            return int(text_val)
-    elif isinstance(value, str) and value.isdigit():
-        return int(value)
-    return "" # Return empty string for non-numeric or None values
+from utils.common_utils import get_safe_int, get_safe_string
 
 def transform_individual_data(individual_data: dict) -> dict:
     """
@@ -364,21 +341,23 @@ def transform_entity_data(entity_data: dict) -> dict:
     return transformed
 
 
-def download_and_convert_xml_to_json(xml_url: str, output_json_path: str) -> bool:
+def download_and_convert_xml_to_json(xml_url: str) -> Union[dict, None]:
     """
-    Downloads an XML file's content directly into memory, converts it to JSON,
-    and then saves the JSON data to a specified file. The raw XML file is NOT saved to disk.
+    Downloads an XML file's content directly into memory, converts it to a Python dictionary,
+    and returns the dictionary. The raw XML file is NOT saved to disk.
 
     Args:
         xml_url (str): The URL of the XML file to download.
-        output_json_path (str): The local file path where the converted JSON data will be saved.
 
     Returns:
-        bool: True if the XML was successfully downloaded, converted, and saved as JSON, False otherwise.
+        Union[dict, None]: The converted JSON data as a Python dictionary, or None if an error occurs.
     """
     try:
         print(f"Downloading XML content from: {xml_url}")
-        xml_response_content = requests.get(xml_url, verify=True).content
+        response = requests.get(xml_url, verify=True)
+        response.raise_for_status() # Raise an HTTPError for bad responses (4xx or 5xx)
+
+        xml_response_content = response.content
 
         # Parse the XML content (bytes) directly into a Python dictionary
         xml_dict = xmltodict.parse(
@@ -431,17 +410,15 @@ def download_and_convert_xml_to_json(xml_url: str, output_json_path: str) -> boo
             # Add the moved attributes to the final_json_data["CONSOLIDATED_LIST"]
             final_json_data["CONSOLIDATED_LIST"].update(attributes_to_move)
 
-        with open(output_json_path, 'w', encoding='utf-8') as f:
-            json.dump(final_json_data, f, indent=2, ensure_ascii=False)
+        print(f"XML content from {xml_url} converted to JSON dictionary.")
+        return final_json_data # Return the dictionary instead of saving to file
 
-        print(f"JSON converted and saved to: {output_json_path}")
-        return True
     except requests.exceptions.RequestException as e:
         print(f"Error downloading XML from {xml_url}: {e}")
-        return False
+        return None
     except xmltodict.expat.ExpatError as e:
         print(f"Error parsing XML from {xml_url}: {e}. The XML might be malformed or empty.")
-        return False
+        return None
     except Exception as e:
         print(f"An unexpected error occurred during XML download or conversion: {e}")
-        return False
+        return None
