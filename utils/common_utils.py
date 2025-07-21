@@ -1,5 +1,6 @@
 import re
 from datetime import datetime
+import hashlib
 from typing import Union
 
 # Map for converting month numbers to names for date parsing
@@ -78,3 +79,15 @@ def get_safe_int(value: Union[str, dict, None]) -> Union[int, str]:
     elif isinstance(value, str) and value.isdigit():
         return int(value)
     return "" # Return empty string for non-numeric or None values
+
+def calculate_sha256(content: bytes) -> str:
+    """
+    Calculates the SHA256 hash of the given byte content.
+
+    Args:
+        content (bytes): The content to hash.
+
+    Returns:
+        str: The hexadecimal representation of the SHA256 hash.
+    """
+    return hashlib.sha256(content).hexdigest()
