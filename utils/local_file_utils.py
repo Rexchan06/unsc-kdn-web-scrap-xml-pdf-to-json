@@ -4,8 +4,6 @@ import json
 import logging
 from typing import Union
 
-# Configure logging for better visibility when running locally
-# Note: In a real Lambda environment, the main.py logging config will apply.
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def save_json_to_local_file(data: dict, file_path: str) -> bool:

@@ -5,7 +5,6 @@ import logging
 from typing import Union
 from config.settings import APP_AWS_REGION
 
-# --- S3 Utility Functions ---
 def upload_json_to_s3(
     json_data: dict,
     bucket_name: str,

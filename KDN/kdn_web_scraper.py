@@ -1,9 +1,9 @@
 # KDN/kdn_web_scraper.py
 import requests
+import logging
 from bs4 import BeautifulSoup
 from typing import Union
 from urllib.parse import urljoin, urlparse # Explicitly import urljoin and urlparse for clarity
-# Removed: import certifi # Removed certifi import as it's no longer needed with verify=False
 
 # --- Configuration for SSL Verification ---
 # WARNING: Setting verify=False disables SSL certificate verification.
@@ -26,10 +26,9 @@ def get_kdn_pdf_content(url: str) -> Union[bytes, None]:
     pdf_content_bytes = None
 
     try:
-        print("Fetching PDF URL from the Ministry of Home Affairs website...")
-        # Explicitly setting verify=False as requested by the user.
+        logging.info("Fetching PDF URL from the Ministry of Home Affairs website...")
         response = requests.get(url, verify=False)
-        response.raise_for_status() # Raise an HTTPError for bad responses (4xx or 5xx)
+        response.raise_for_status()
 
         soup = BeautifulSoup(response.content, "html.parser")
         base_url = 'https://www.moha.gov.my'
@@ -44,24 +43,24 @@ def get_kdn_pdf_content(url: str) -> Union[bytes, None]:
                 break
 
         if not found_pdf_url:
-            print("Warning: Could not find the PDF link on the webpage.")
+            logging.warning("Could not find the PDF link on the webpage.")
             return None
 
-        print(f"Found PDF link: {found_pdf_url}. Proceeding to download.")
+        logging.info(f"Found PDF link: {found_pdf_url}. Proceeding to download.")
         # Download the PDF content as bytes
         # Explicitly setting verify=False as requested by the user.
         pdf_response = requests.get(found_pdf_url, verify=False)
         pdf_response.raise_for_status()
         pdf_content_bytes = pdf_response.content
-        print("PDF content downloaded successfully.")
+        logging.info("PDF content downloaded successfully.")
 
     except requests.exceptions.RequestException as req_err:
-        print(f"Network or HTTP error during web scraping or PDF download: {req_err}")
-        print("NOTE: SSL verification is disabled for this URL. Re-enable for production.")
+        logging.error(f"Network or HTTP error during web scraping or PDF download: {req_err}")
+        logging.warning("NOTE: SSL verification is disabled for this URL. Re-enable for production.")
     except ValueError as val_err:
-        print(f"Data error: {val_err}")
+        logging.error(f"Data error: {val_err}")
     except Exception as e:
-        print(f"An unexpected error occurred during PDF URL retrieval or download: {e}")
+        logging.error(f"An unexpected error occurred during PDF URL retrieval or download: {e}")
 
     return pdf_content_bytes
 
@@ -80,10 +79,9 @@ def get_current_kdn_xml_url(url: str) -> Union[str, None]:
     found_xml_url = None
 
     try:
-        print(f"Checking for current XML link on: {url}")
-        # Explicitly setting verify=False as requested by the user.
+        logging.info(f"Checking for current XML link on: {url}")
         response = requests.get(url, verify=False)
-        response.raise_for_status() # Raise an HTTPError for bad responses (4xx or 5xx)
+        response.raise_for_status()
 
         soup = BeautifulSoup(response.content, "html.parser")
         base_url = "https://www.moha.gov.my" # Base URL to construct absolute link
@@ -101,16 +99,16 @@ def get_current_kdn_xml_url(url: str) -> Union[str, None]:
                 break # Exit loop once the XML link is found
 
         if not found_xml_url:
-            print("Warning: XML download link not found on the webpage.")
+            logging.warning("XML download link not found on the webpage.")
             return None
 
-        print(f"Found current XML link: {found_xml_url}")
+        logging.info(f"Found current XML link: {found_xml_url}")
         return found_xml_url
 
     except requests.exceptions.RequestException as req_err:
-        print(f"Network or HTTP error during web scraping: {req_err}")
-        print("NOTE: SSL verification is disabled for this URL. Re-enable for production.")
+        logging.error(f"Network or HTTP error during web scraping: {req_err}")
+        logging.warning("NOTE: SSL verification is disabled for this URL. Re-enable for production.")
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        logging.error(f"An unexpected error occurred: {e}")
 
     return None # Return None if any error occurs

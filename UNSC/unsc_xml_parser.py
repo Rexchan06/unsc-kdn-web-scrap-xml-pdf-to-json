@@ -1,5 +1,6 @@
 import requests
 import xmltodict
+import logging
 from typing import Union, Optional # Import Optional
 
 # Import utility functions from common_utils module
@@ -219,17 +220,13 @@ def download_and_convert_xml_to_json(xml_url: str, xml_content_bytes: Optional[b
     """
     try:
         if xml_content_bytes is None:
-            print(f"Downloading XML content from {xml_url}...")
-            # Fetch the XML content, ensuring SSL verification is enabled
+            logging.info(f"Downloading XML content from {xml_url}...")
             response = requests.get(xml_url, verify=True)
-            response.raise_for_status()  # Raise an HTTPError for bad responses (4xx or 5xx)
+            response.raise_for_status()
             xml_content_bytes = response.content
         else:
-            print("Using pre-downloaded XML content for conversion.")
+            logging.info("Using pre-downloaded XML content for conversion.")
 
-        # Convert XML to Python dictionary using xmltodict
-        # The process_namespaces=True helps in handling XML namespaces correctly,
-        # but we then strip them for cleaner JSON keys.
         xml_dict = xmltodict.parse(xml_content_bytes, process_namespaces=False)
 
         final_json_data = {"CONSOLIDATED_LIST": {}}
@@ -240,7 +237,6 @@ def download_and_convert_xml_to_json(xml_url: str, xml_content_bytes: Optional[b
             # Handle INDIVIDUALS
             individuals_data = consolidated_list.get("INDIVIDUALS", {}).get("INDIVIDUAL")
             if individuals_data:
-                # Ensure individuals_data is always a list for consistent processing
                 if not isinstance(individuals_data, list):
                     individuals_data = [individuals_data]
                 final_json_data["CONSOLIDATED_LIST"]["INDIVIDUALS"] = {
@@ -252,7 +248,6 @@ def download_and_convert_xml_to_json(xml_url: str, xml_content_bytes: Optional[b
             # Handle ENTITIES
             entities_data = consolidated_list.get("ENTITIES", {}).get("ENTITY")
             if entities_data:
-                # Ensure entities_data is always a list for consistent processing
                 if not isinstance(entities_data, list):
                     entities_data = [entities_data]
                 final_json_data["CONSOLIDATED_LIST"]["ENTITIES"] = {
@@ -277,15 +272,15 @@ def download_and_convert_xml_to_json(xml_url: str, xml_content_bytes: Optional[b
             # Add the moved attributes to the final_json_data["CONSOLIDATED_LIST"]
             final_json_data["CONSOLIDATED_LIST"].update(attributes_to_move)
 
-        print(f"XML content from {xml_url} converted to JSON dictionary.")
+        logging.info(f"XML content from {xml_url} converted to JSON dictionary.")
         return final_json_data # Return the dictionary instead of saving to file
 
     except requests.exceptions.RequestException as e:
-        print(f"Error downloading XML from {xml_url}: {e}")
+        logging.error(f"Error downloading XML from {xml_url}: {e}")
         return None
     except xmltodict.expat.ExpatError as e:
-        print(f"Error parsing XML from {xml_url}: {e}. The XML might be malformed or empty.")
+        logging.error(f"Error parsing XML from {xml_url}: {e}. The XML might be malformed or empty.")
         return None
     except Exception as e:
-        print(f"An unexpected error occurred during XML conversion: {e}")
+        logging.error(f"An unexpected error occurred during XML conversion: {e}")
         return None
